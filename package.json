@@ -1,0 +1,27 @@
+{
+  "name": "launcher",
+  "version": "1.0.0",
+  "description": "Lanceur Minecraft de base",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "buildW": "electron-builder build -w",
+    "buildM": "electron-builder build -m",
+    "buildL": "electron-builder build -l"
+  },
+  "author": "SlashDev",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^9.0.0",
+    "electron-builder": "^22.7.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "custom-electron-titlebar": "^3.2.2-hotfix62",
+    "minecraft-launcher-core": "^3.14.1"
+  },
+  "build": {
+    "appId": "fr.slashdev.mclclauncher",
+    "icon": "asset/logo.ico"
+  }
+}
