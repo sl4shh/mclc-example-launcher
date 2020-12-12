@@ -58,6 +58,13 @@
       const ipc = require("electron").ipcRenderer;
       const custombar = require("custom-electron-titlebar");
 
+      // Variables globales
+      let pseudo = document.getElementById("pseudo");
+      let skin = document.getElementById("skin");
+      let deco = document.getElementById("deco");
+      let playbtn = document.getElementById("playbtn");
+      let ram = document.getElementById("ram");
+
       // Déclaration de la barre de base
       let bar = new custombar.Titlebar({
         menu: null,
