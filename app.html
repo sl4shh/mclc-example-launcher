@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="asset/toast.css" />
     <script src="asset/toast.js"></script>
+    <title>LauncherMC - App</title>
   </head>
 
   <body
@@ -40,7 +41,7 @@
           </select>
           GO
           <hr />
-          <button>Déconnexion</button>
+          <button id="deco">Déconnexion</button>
         </div>
       </div>
     </div>
@@ -53,6 +54,17 @@
       <button id="playbtn">JOUER</button>
     </footer>
     <script>
+      // Importation des modules
+      const ipc = require("electron").ipcRenderer;
+      const custombar = require("custom-electron-titlebar");
+
+      // Déclaration de la barre de base
+      let bar = new custombar.Titlebar({
+        menu: null,
+        icon: "asset/logo.png",
+        backgroundColor: custombar.Color.fromHex("#ffcccc"),
+      });
+
       // Modal
       var modal = document.getElementById("myModal");
       var span = document.getElementsByClassName("close")[0];
