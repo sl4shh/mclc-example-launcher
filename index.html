@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="asset/toast.css" />
     <script src="asset/toast.js"></script>
+    <title>LauncherMC - Login</title>
   </head>
 
   <body>
@@ -23,9 +24,42 @@
     <script>
       // Importation des modules
       const ipc = require("electron").ipcRenderer;
+      const custombar = require("custom-electron-titlebar");
+
+      // Variables globales
+      let playbtn = document.getElementById("play");
+
+      // Déclaration de la barre de base
+      let bar = new custombar.Titlebar({
+        menu: null,
+        icon: "asset/logo.png",
+        backgroundColor: custombar.Color.fromHex("#ffcccc"),
+      });
+
+      // Lors d'un click sur le bouton play, non désactivé
+      playbtn.addEventListener("click", () => {
+        playbtn.disabled = true;
+
+        let user = document.getElementById("username").value;
+        let pass = document.getElementById("password").value;
+
+        if (user && pass) {
+          ipc.send("login", { user, pass });
+        } else {
+          playbtn.disabled = false;
+          iziToast.error({
+            id: "error",
+            title: "Erreur",
+            message: "Veuillez entrer des identifiants",
+            position: "bottomRight",
+            transitionIn: "fadeInDown",
+          });
+        }
+      });
 
       // Récéption de l'event erreur
       ipc.on("err", (event, errorMessage) => {
+        localStorage.clear();
         iziToast.error({
           id: "error",
           title: "Erreur",
