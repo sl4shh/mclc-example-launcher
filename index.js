@@ -36,3 +36,14 @@ app.whenReady().then(() => {
 app.on("window-all-closed", function () {
   if (process.platform !== "darwin") app.quit();
 });
+
+// Quand un utilisateur tente de se connecter
+ipcMain.on("login", (evt, data) => {
+  Authenticator.getAuth(data.user, data.pass)
+    .then((e) => {
+      mainWindow.loadURL(path.join(__dirname, "app.html"));
+    })
+    .catch(() => {
+      evt.sender.send("err", "Erreur de connexion");
+    });
+});
