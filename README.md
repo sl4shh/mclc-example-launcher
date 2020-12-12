@@ -1,6 +1,7 @@
 # mclc-example-launcher
 
 Il s'agit d'une base de launcher, incomplète, afin de vous permettre de vous concentrer sur la logique du launcher au lieu du design.
+Evitez de retirer les lignes de code si vous n'avez pas vu entièrement la série.
 
 ## Installation
 
