@@ -55,8 +55,8 @@
     </footer>
     <script>
       // Importation des modules
-      const ipc = require("electron").ipcRenderer;
-      const custombar = require("custom-electron-titlebar");
+      const ipc = window.ipc
+      const custombar = window.electronCustomTitleBar
 
       // Variables globales
       let pseudo = document.getElementById("pseudo");
